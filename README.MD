@@ -36,7 +36,7 @@ subSpan := rootSpan.Sub("sub-operation-name")
 brotherSpan := rootSpan.Sub("brother-operation-name")
 
 brotherSpan.Finish()
-grandsonSpan := brotherSpan.Sub("grandson-operation-name") 
+grandsonSpan := subSpan.Sub("grandson-operation-name") 
 
 grandsonSpan.Finish()
 subSpan.Finish()
