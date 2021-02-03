@@ -100,3 +100,11 @@ func main() {
 	r.Run("0.0.0.0:9002")
 }
 ```
+
+# mq span deliver
+You can also deliver the span through mq(nsq,kafka,rabbitmq),
+
+Producer put the trace-id or http-header into a message body.
+
+Consumer get trace-id or http-header from the message and then new a span by trace-id or http-header.
+
