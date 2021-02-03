@@ -21,13 +21,14 @@ opentracing.io https://opentracing.io/docs/overview/inject-extract/
 
 # local-span
 
+#### root-span
 ```
 rootSpan := jaeger.NewSpan(context.Background(), "operation-name")
 //...
 rootSpan.Finish()
 ```
 
-# sub-span
+#### sub-span
 
 ```
 rootSpan := jaeger.NewRootSpan("operation-name")
