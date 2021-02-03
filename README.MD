@@ -24,6 +24,7 @@ opentracing.io https://opentracing.io/docs/overview/inject-extract/
 #### root-span
 ```
 rootSpan := jaeger.NewSpan(context.Background(), "operation-name")
+rootSpan.SetTag("tag-one", "tag-info")
 //...
 rootSpan.Finish()
 ```
