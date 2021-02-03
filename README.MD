@@ -19,7 +19,7 @@ opentracing.io https://opentracing.io/docs/overview/inject-extract/
     defer jaegerCli.Close()
 
 
-# root-span
+# local-span
 
 ```
 rootSpan := jaeger.NewSpan(context.Background(), "operation-name")
@@ -27,19 +27,19 @@ rootSpan := jaeger.NewSpan(context.Background(), "operation-name")
 rootSpan.Finish()
 ```
 
-or 
-```
-rootSpan := jaeger.NewRootSpan("operation-name")
-//...
-rootSpan.Finish()
-```
-
 # sub-span
 
 ```
+rootSpan := jaeger.NewRootSpan("operation-name")
 subSpan := rootSpan.Sub("sub-operation-name") 
-//...
+brotherSpan := rootSpan.Sub("brother-operation-name")
+
+brotherSpan.Finish()
+grandsonSpan := brotherSpan.Sub("grandson-operation-name") 
+
+grandsonSpan.Finish()
 subSpan.Finish()
+rootSpan.Finish()
 ```
 
 # http-client-span
