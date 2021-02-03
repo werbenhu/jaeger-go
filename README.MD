@@ -6,13 +6,20 @@ To install this package, you need to install Go and set your Go workspace first.
 
 ```go get -u github.com/werbenhu/jaeger-go```
 
+For more information about span, please refer to
+
+opentracing-go https://github.com/opentracing/opentracing-go
+
+opentracing.io https://opentracing.io/docs/overview/inject-extract/
+
+
 # initialization
 
     jaegerCli := jaeger.NewJaeger("server-name", JaegerHostPort)
     defer jaegerCli.Close()
 
 
-# new root span
+# root-span
 
 ```
 rootSpan := jaeger.NewSpan(context.Background(), "operation-name")
@@ -27,7 +34,7 @@ rootSpan := jaeger.NewRootSpan("operation-name")
 rootSpan.Finish()
 ```
 
-# new sub span
+# sub-span
 
 ```
 subSpan := rootSpan.Sub("sub-operation-name") 
@@ -35,8 +42,8 @@ subSpan := rootSpan.Sub("sub-operation-name")
 subSpan.Finish()
 ```
 
-# remote http sub span
-client get span's carrier, and put it in http request header 
+# http-client-span
+httpClient get span's carrier, and put it into http request header 
 ```
 	// new a http request
 	client := &http.Client{}
@@ -62,7 +69,8 @@ client get span's carrier, and put it in http request header
 	return sub
 ```
 
-server get the header and new remote sub span by trace id
+# http-server-span
+httpServer get the header and new a remote sub-span by trace id
 ```
 package main
 
