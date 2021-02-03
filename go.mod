@@ -1,4 +1,4 @@
-module jaeger-go
+module https://github.com/werbenhu/jaeger-go
 
 go 1.14
 
