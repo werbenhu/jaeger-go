@@ -91,7 +91,6 @@ func main() {
 	r.GET("/server_two", func(c *gin.Context) {
 		//span := jaeger.NewSpanByTraceId(c.GetHeader("uber-trace-id"), "server-two-http-root")
 		span := jaeger.NewSpanByHttpHeader(&c.Request.Header, "server-two-http-root")
-		selfCall(span)
 		c.JSON(200, gin.H{
 			"message": "server two response",
 		})
