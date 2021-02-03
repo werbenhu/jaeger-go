@@ -21,7 +21,7 @@ import (
 const (
 	TopicName string = "test"
 	TopicCh string = "test"
-	JaegerHostPort = "218.91.230.203:6831"
+	JaegerHostPort = "218.91.230.20:6831"
 )
 
 // http传递trace-id

@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	JaegerHostPort = "218.91.230.203:6831"
+	JaegerHostPort = "218.91.230.20:6831"
 )
 
 func selfCall(span *jaeger.Span) *jaeger.Span {

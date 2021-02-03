@@ -55,7 +55,7 @@ func getProducer() *nsq.Producer {
 	mutexNsq.Lock()
 	defer mutexNsq.Unlock()
 	if producer == nil {
-		pro, err := nsq.NewProducer("218.91.230.203:4150", config)
+		pro, err := nsq.NewProducer("218.91.230.20:4150", config)
 		logger := log.New(os.Stderr, "", log.Flags())
 		pro.SetLogger(logger, nsq.LogLevelError)
 		if err != nil {
@@ -95,7 +95,7 @@ func Consume(topic string, channel string, handler MessageHandler) {
 			messageHandler : handler,
 		})
 
-		err = consumer.ConnectToNSQLookupd("218.91.230.203:4161")
+		err = consumer.ConnectToNSQLookupd("218.91.230.20:4161")
 		if err != nil {
 			log.Println(err)
 		}
