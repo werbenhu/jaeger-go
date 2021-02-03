@@ -1,6 +1,10 @@
 # jaeger-go
 A simple go tool for OpenTracing jaeger.
 
+# install
+To install this package, you need to install Go and set your Go workspace first.
+
+$ go get -u github.com/werbenhu/jaeger-go
 
 # initialization
 
