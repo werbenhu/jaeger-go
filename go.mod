@@ -1,4 +1,4 @@
-module jaeger-go-ex
+module jaeger-go
 
 go 1.14
 
