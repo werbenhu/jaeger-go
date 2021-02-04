@@ -82,6 +82,11 @@ func (s *Span) SetTag(key string, value interface{}) *Span {
 	return s
 }
 
+func (s *Span) SetBaggageItem(restrictedKey, value string) *Span {
+	s.Span = s.Span.SetBaggageItem(restrictedKey, value)
+	return s
+}
+
 func (s *Span) Sub(name string) *Span {
 	span := new(Span)
 	span.Span, span.Ctx = opentracing.StartSpanFromContext(s.Ctx, name)
