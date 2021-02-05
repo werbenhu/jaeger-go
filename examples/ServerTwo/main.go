@@ -6,10 +6,6 @@ import (
 	"time"
 )
 
-const (
-	JaegerHostPort = "218.91.230.20:6831"
-)
-
 func selfCall(span *jaeger.Span) *jaeger.Span {
 	sub := span.Sub("self-two-call-1")
 	time.Sleep(time.Second)

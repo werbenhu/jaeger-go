@@ -82,10 +82,6 @@ import (
 	"github.com/werbenhu/jaeger-go"
 )
 
-const (
-	JaegerHostPort = "xxx:6831"
-)
-
 func main() {
 	opt := &jaeger.Opt{
     	ServiceName: "srv-two",
