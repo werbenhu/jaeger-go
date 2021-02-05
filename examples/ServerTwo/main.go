@@ -23,7 +23,13 @@ func selfCall(span *jaeger.Span) *jaeger.Span {
 }
 
 func main() {
-	jaegerClient := jaeger.NewJaeger("srv-two", JaegerHostPort)
+
+	opt := &jaeger.Opt{
+		ServiceName: "srv-two",
+		HostPort: "127.0.0.1:6831",
+	}
+
+	jaegerClient := jaeger.NewJaeger(opt)
 	defer jaegerClient.Close()
 	InitEvent()
 

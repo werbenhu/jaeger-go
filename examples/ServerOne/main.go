@@ -20,8 +20,6 @@ import (
 )
 const (
 	TopicName string = "test"
-	TopicCh string = "test"
-	JaegerHostPort = "218.91.230.20:6831"
 )
 
 // http传递trace-id
@@ -76,8 +74,13 @@ func selfCall(span *jaeger.Span) *jaeger.Span {
 
 func main() {
 
+	opt := &jaeger.Opt{
+		ServiceName: "srv-one",
+		HostPort: "127.0.0.1:6831",
+	}
+
 	//初始化jaeger
-	jaegerCli := jaeger.NewJaeger("srv-one", JaegerHostPort)
+	jaegerCli := jaeger.NewJaeger(opt)
 	defer jaegerCli.Close()
 	r := gin.Default()
 

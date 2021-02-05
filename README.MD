@@ -87,8 +87,13 @@ const (
 )
 
 func main() {
-	jaegerClient := jaeger.NewJaeger("srv-two", JaegerHostPort)
-	defer jaegerClient.Close()
+	opt := &jaeger.Opt{
+    	ServiceName: "srv-two",
+    	HostPort: "127.0.0.1:6831",
+    }
+    
+    jaegerClient := jaeger.NewJaeger(opt)
+    defer jaegerClient.Close()
 
 	r := gin.Default()
 	r.GET("/server_two", func(c *gin.Context) {

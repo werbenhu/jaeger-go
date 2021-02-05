@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="5c81403c-a5f4-4612-8983-4bbeb8b7b274" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jaeger.go" beforeDir="false" afterPath="$PROJECT_DIR$/jaeger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ServerOne/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/examples/ServerOne/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ServerOne/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/examples/ServerOne/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ServerOne/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/ServerOne/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ServerTwo/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/examples/ServerTwo/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ServerTwo/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/ServerTwo/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
