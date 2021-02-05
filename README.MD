@@ -83,7 +83,7 @@ import (
 )
 
 func main() {
-	opt := &jaeger.Opt{
+    opt := &jaeger.Opt{
     	ServiceName: "srv-two",
     	HostPort: "127.0.0.1:6831",
     }
