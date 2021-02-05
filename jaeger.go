@@ -112,13 +112,19 @@ func (s *Span) Finish() {
 }
 
 type Jaeger struct {
-	HostPort string
+	Opt *Opt
 	Closer io.Closer
 }
 
-func NewJaeger(serviceName string, hostPort string) *Jaeger {
-	j := new(Jaeger)
-	j.HostPort = hostPort
+type Opt struct {
+	ServiceName string
+	HostPort string
+}
+
+func NewJaeger(opt *Opt) *Jaeger {
+	j := &Jaeger {
+		Opt: opt,
+	}
 	cfg := &config.Configuration{
 		Sampler: &config.SamplerConfig{
 			Type:  jaeger.SamplerTypeConst,
@@ -126,10 +132,10 @@ func NewJaeger(serviceName string, hostPort string) *Jaeger {
 		},
 		Reporter: &config.ReporterConfig{
 			LogSpans: true,
-			LocalAgentHostPort: j.HostPort,
+			LocalAgentHostPort: j.Opt.HostPort,
 		},
 	}
-	closer, err := cfg.InitGlobalTracer(serviceName, config.Logger(jaeger.StdLogger))
+	closer, err := cfg.InitGlobalTracer(j.Opt.ServiceName, config.Logger(jaeger.StdLogger))
 	j.Closer = closer
 
 	if err != nil {
