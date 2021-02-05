@@ -14,10 +14,15 @@ opentracing.io https://opentracing.io/docs/overview/inject-extract/
 
 
 # initialization
-
-    jaegerCli := jaeger.NewJaeger("server-name", JaegerHostPort)
-    defer jaegerCli.Close()
-
+```
+opt := &jaeger.Opt{
+    ServiceName: "srv-two",
+    HostPort: "127.0.0.1:6831",
+}
+    
+jaegerClient := jaeger.NewJaeger(opt)
+defer jaegerClient.Close()
+```
 
 # local-span
 
@@ -48,28 +53,28 @@ rootSpan.Finish()
 # http-client-span
 httpClient get span's carrier, and put it into http request header 
 ```
-	// new a http request
-	client := &http.Client{}
-	req, _ := http.NewRequest("GET","http://localhost:9002/server_two", nil)
+// new a http request
+client := &http.Client{}
+req, _ := http.NewRequest("GET","http://localhost:9002/server_two", nil)
 
-	// new a http req span
-	sub := span.Sub("http-req-span")
-	header := sub.GetHttpHeader()
+// new a http req span
+sub := span.Sub("http-req-span")
+header := sub.GetHttpHeader()
 
-	// put trace-id(from carrier) into http header
-	for key, value := range header {
-		req.Header.Add(key, value[0])
-	}
+// put trace-id(from carrier) into http header
+for key, value := range header {
+	req.Header.Add(key, value[0])
+}
 
-	// send request
-	resp, _ := client.Do(req)
-	defer resp.Body.Close()
-	body, _ := ioutil.ReadAll(resp.Body)
+// send request
+resp, _ := client.Do(req)
+defer resp.Body.Close()
+body, _ := ioutil.ReadAll(resp.Body)
 
-	//finish request span
-	sub.Finish()
-	fmt.Printf(string(body))
-	return sub
+//finish request span
+sub.Finish()
+fmt.Printf(string(body))
+return sub
 ```
 
 # http-server-span
