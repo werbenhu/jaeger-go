@@ -20,7 +20,7 @@ opt := &jaeger.Opt{
     HostPort: "127.0.0.1:6831",
 }
     
-jaegerClient := jaeger.NewJaeger(opt)
+jaegerClient := jaeger.New(opt)
 defer jaegerClient.Close()
 ```
 
@@ -93,7 +93,7 @@ func main() {
     	HostPort: "127.0.0.1:6831",
     }
     
-    jaegerClient := jaeger.NewJaeger(opt)
+    jaegerClient := jaeger.New(opt)
     defer jaegerClient.Close()
 
 	r := gin.Default()
