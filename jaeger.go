@@ -121,7 +121,7 @@ type Opt struct {
 	HostPort string
 }
 
-func NewJaeger(opt *Opt) *Jaeger {
+func New(opt *Opt) *Jaeger {
 	j := &Jaeger {
 		Opt: opt,
 	}
