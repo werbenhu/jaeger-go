@@ -80,7 +80,7 @@ func main() {
 	}
 
 	//初始化jaeger
-	jaegerCli := jaeger.NewJaeger(opt)
+	jaegerCli := jaeger.New(opt)
 	defer jaegerCli.Close()
 	r := gin.Default()
 

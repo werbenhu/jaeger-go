@@ -126,9 +126,13 @@ func New(opt *Opt) *Jaeger {
 		Opt: opt,
 	}
 	cfg := &config.Configuration{
+		//Sampler: &config.SamplerConfig{
+		//	Type:  jaeger.SamplerTypeConst,
+		//	Param: 1,
+		//},
 		Sampler: &config.SamplerConfig{
-			Type:  jaeger.SamplerTypeConst,
-			Param: 1,
+			Type:  jaeger.SamplerTypeRateLimiting,
+			Param: 10,
 		},
 		Reporter: &config.ReporterConfig{
 			LogSpans: true,
