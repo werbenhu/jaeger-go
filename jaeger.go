@@ -119,6 +119,7 @@ type Jaeger struct {
 type Opt struct {
 	ServiceName string
 	HostPort string
+	SamplerPerSecond float64
 }
 
 func New(opt *Opt) *Jaeger {
@@ -132,7 +133,7 @@ func New(opt *Opt) *Jaeger {
 		//},
 		Sampler: &config.SamplerConfig{
 			Type:  jaeger.SamplerTypeRateLimiting,
-			Param: 10,
+			Param: opt.SamplerPerSecond,
 		},
 		Reporter: &config.ReporterConfig{
 			LogSpans: true,
