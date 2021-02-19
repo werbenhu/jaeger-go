@@ -13,7 +13,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"github.com/uber/jaeger-client-go/thrift-gen/jaeger"
 	"github.com/werbenhu/jaeger-go"
 	"io/ioutil"
 	"net/http"
