@@ -18,6 +18,7 @@ opentracing.io https://opentracing.io/docs/overview/inject-extract/
 opt := &jaeger.Opt{
     ServiceName: "srv-two",
     HostPort: "127.0.0.1:6831",
+    SamplerPerSecond: 3,
 }
     
 jaegerClient := jaeger.New(opt)

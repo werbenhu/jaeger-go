@@ -13,6 +13,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/uber/jaeger-client-go/thrift-gen/jaeger"
 	"github.com/werbenhu/jaeger-go"
 	"io/ioutil"
 	"net/http"
@@ -77,6 +78,7 @@ func main() {
 	opt := &jaeger.Opt{
 		ServiceName: "srv-one",
 		HostPort: "127.0.0.1:6831",
+		SamplerPerSecond: 3,
 	}
 
 	//初始化jaeger
